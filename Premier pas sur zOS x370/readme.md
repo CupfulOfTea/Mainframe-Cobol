@@ -29,7 +29,7 @@ PREFIX FORA*
 
 
 
-## Programme Cobol
+## Cobol - Hello World
 
 ```
 profile          //permet d'afficher le profile du fichier cobol
