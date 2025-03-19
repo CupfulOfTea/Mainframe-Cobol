@@ -19,16 +19,16 @@ DA              //permet de lister l'activiter des utilisateurs
 ```
 ![alt text](images/image-3.png)
 
-#### Application d'un filtre pour la liste d'activiter  par ``Job name`` commencent par ``FORA`` 
+#### Application d'un filtre pour la liste d'utilisateur active par ``Job name`` commencent par ``FORA`` 
 ```
 PREFIX FORA*
 ```
 
-#### Pour ``CANCEL`` une activiter ecrire ``C``dans la colonne ``NP``
+#### Pour ``CANCEL`` l'activité d'un utilisateur écrire ``C``dans la colonne ``NP``
 
 ![alt text](images/image-4.png)
 
-###  Déconexion du z/OS x370
+###  Déconexion du compte utilisateur depuis x370
 Menu initial > F3 > 2 > ``LOGOFF`` pour une déconnexion.
 
 
