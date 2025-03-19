@@ -7,8 +7,10 @@
 
 ### ``Utilitie`` > ``Library`` est accesible directement avec la commande `3.1`
 ![alt text](images/image-1.png)
-
+### Library Utility
 ![alt text](images/image-2.png)
+
+### Sort data set inforation
 ```
 I               //permet de lister les programes en file d'attente
 ```
