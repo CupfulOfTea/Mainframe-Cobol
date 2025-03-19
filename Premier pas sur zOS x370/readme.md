@@ -10,11 +10,11 @@
 
 ![alt text](images/image-2.png)
 
-### Puis `DA` pour lister l'activiter des utilisateur
+### `DA` permet de lister l'activiter des utilisateurs
 
 ![alt text](images/image-3.png)
 
-### Application d'un filtre pour la liste d'activiter par ``Job name`` commencent par ``FORA`` 
+### Application d'un filtre pour la liste d'activiter  par ``Job name`` commencent par ``FORA`` 
 ```
 PREFIX FORA*
 ```
@@ -31,21 +31,21 @@ PREFIX FORA*
 
 ## Programme Cobol
 
-````c
+```
 profile          //permet d'afficher le profile du fichier cobol
-````
+```
 
-```c
+```
 AUTOSAVE ON      //permet d'activer la sauvegarde auto sur le fichier
 ```
 
-```c
+```
 HILITE COBOL     //permet une lecture du code en style COBOL
 ```
 
-```c
+```
 Undo             //permet de restauré les dernières modification
 ```
 
 
-![alt text](images/image.png)
+![alt text](images/image-5.png)
