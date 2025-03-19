@@ -10,22 +10,23 @@
 
 ![alt text](images/image-2.png)
 
+### ``I`` permet de voir les programe en file d'attente
+
 ### `DA` permet de lister l'activiter des utilisateurs
 
 ![alt text](images/image-3.png)
 
-### Application d'un filtre pour la liste d'activiter  par ``Job name`` commencent par ``FORA`` 
+#### Application d'un filtre pour la liste d'activiter  par ``Job name`` commencent par ``FORA`` 
 ```
 PREFIX FORA*
 ```
 
-### Pour ``CANCEL`` une activiter ecrire ``C``dans la colonne ``NP``
+#### Pour ``CANCEL`` une activiter ecrire ``C``dans la colonne ``NP``
 
 ![alt text](images/image-4.png)
 
- Menu initial > F3 > 2 > ``LOGOFF`` pour une déconnexion
-
-### ``I`` permet de voir les programe en file d'attente.
+###  Déconexion du z/OS x370
+Menu initial > F3 > 2 > ``LOGOFF`` pour une déconnexion.
 
 
 
