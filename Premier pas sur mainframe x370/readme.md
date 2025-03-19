@@ -11,7 +11,7 @@
 ![alt text](images/image-2.png)
 
 ### Short data set inforation
-```
+```pyhton
 I               //permet de lister les programes en file d'attente
 ```
 ```
