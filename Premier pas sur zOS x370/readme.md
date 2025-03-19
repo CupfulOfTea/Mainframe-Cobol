@@ -22,3 +22,30 @@ PREFIX FORA*
 ### Pour ``CANCEL`` une activiter ecrire ``C``dans la colonne ``NP``
 
 ![alt text](images/image-4.png)
+
+ Menu initial > F3 > 2 > ``LOGOFF`` pour une déconnexion
+
+### ``I`` permet de voir les programe en file d'attente.
+
+
+
+## Programme Cobol
+
+````c
+profile          //permet d'afficher le profile du fichier cobol
+````
+
+```c
+AUTOSAVE ON      //permet d'activer la sauvegarde auto sur le fichier
+```
+
+```c
+HILITE COBOL     //permet une lecture du code en style COBOL
+```
+
+```c
+Undo             //permet de restauré les dernières modification
+```
+
+
+![alt text](images/image.png)
