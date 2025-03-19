@@ -9,11 +9,12 @@
 ![alt text](images/image-1.png)
 
 ![alt text](images/image-2.png)
-
-### ``I`` permet de voir les programe en file d'attente
-
-### `DA` permet de lister l'activiter des utilisateurs
-
+```
+I               //permet de lister les programes en file d'attente
+```
+```
+DA              //permet de lister l'activiter des utilisateurs
+```
 ![alt text](images/image-3.png)
 
 #### Application d'un filtre pour la liste d'activiter  par ``Job name`` commencent par ``FORA`` 
