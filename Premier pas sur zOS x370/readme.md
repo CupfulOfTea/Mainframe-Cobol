@@ -10,7 +10,7 @@
 ### Library Utility
 ![alt text](images/image-2.png)
 
-### Sort data set inforation
+### Short data set inforation
 ```
 I               //permet de lister les programes en file d'attente
 ```
