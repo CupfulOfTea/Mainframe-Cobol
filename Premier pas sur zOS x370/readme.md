@@ -48,7 +48,7 @@ HILITE COBOL     //permet une lecture du code en style COBOL
 ```
 
 ```
-Undo             //permet de restaurer les dernières modification
+Undo             //permet d'annuler les dernières modification
 ```
 
 
