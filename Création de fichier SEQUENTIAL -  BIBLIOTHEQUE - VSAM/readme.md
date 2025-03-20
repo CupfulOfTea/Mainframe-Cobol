@@ -51,7 +51,7 @@ I       //Permet d'insert une ligne
 ```
 
 ```
-COLS    // permet d'afficher les nombre de collone
+COLS    // Permet d'afficher les nombre de collone
 ```
 ![alt text](images2/image-14.png)
 
@@ -92,7 +92,7 @@ S PROG2
 ### Accès au menu DSUtility avec la commande ``3.2``
 
 ```
-V       //Permet de chosire la creation d'un fichier VSAM 
+V       //Permet de choisir la creation d'un fichier VSAM 
 ```
 ### Menu VSAM Utilities 
 ![alt text](images2/image-22.png)
@@ -109,7 +109,7 @@ V       //Permet de chosire la creation d'un fichier VSAM
 ![alt text](images2/image-25.png)
 
 ```
-EXEcute      //permet d'executer le code generer 
+EXEcute      //Permet d'executer le code generer 
 ```
 ### Si le code renvoyer est ``code 0`` le program ces executer sans erreur
 ![alt text](images2/image-26.png) 
