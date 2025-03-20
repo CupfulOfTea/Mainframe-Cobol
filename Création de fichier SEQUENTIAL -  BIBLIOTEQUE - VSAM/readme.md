@@ -1,4 +1,6 @@
-
+ Date | Sujet
+:---|:---
+ 20/03/2025 | Gestion des données
 
 
 ## Création d'un fichier sequential par TSO ISF
