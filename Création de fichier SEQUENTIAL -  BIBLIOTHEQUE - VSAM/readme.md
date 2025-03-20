@@ -55,7 +55,7 @@ COLS    // permet d'afficher les nombre de collone
 ```
 ![alt text](images2/image-14.png)
 
-## Créer une bibliothèque pour des ligne de 80 octect, de 5 cylindres et 3 cylindres secondaire
+## Création d'une  ``bibliothèque`` pour des ligne de ``80 octect``, de ``5 cylindres`` et ``3 cylindres secondaire``
 
 ### Accès au menu DSUtility avec la commande ``3.2``
 
@@ -87,7 +87,7 @@ S PROG3
 ```
 ![alt text](images2/image-21.png)
 
-## Créer un fichier VSAM 
+## Création d'un fichier ``VSAM`` 
 
 ### Accès au menu DSUtility avec la commande ``3.2``
 
