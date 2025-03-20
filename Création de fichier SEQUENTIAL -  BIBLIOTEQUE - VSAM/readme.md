@@ -21,7 +21,7 @@ Le menu 3.2 est utiliser pour la création de fichier.
 
 ![alt text](images2/image-4.png)
 
-### Consultation d'un fichier existant pour garder les paramètres de ce fichier sur mon nouveau fichier.
+### Consultation d'un fichier existant pour garder les paramètres de fichier sur mon nouveau fichier.
 
 ![alt text](images2/image-5.png)
 
