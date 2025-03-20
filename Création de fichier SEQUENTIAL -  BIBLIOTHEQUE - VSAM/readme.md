@@ -111,7 +111,7 @@ V       //Permet de choisir la creation d'un fichier VSAM
 ```
 EXEcute      //Permet d'executer le code generer 
 ```
-### Si le code renvoyer est ``code 0`` le program ces executer sans erreur
+### Si le code renvoyer est ``code 0`` le program s'est executer sans erreur
 ![alt text](images2/image-26.png) 
 
 
