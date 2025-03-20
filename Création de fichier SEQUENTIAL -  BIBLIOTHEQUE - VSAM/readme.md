@@ -72,7 +72,7 @@ COLS    // permet d'afficher les nombre de collone
 
 ![alt text](images2/image-16.png)
 
-### AJOUT DU PREMEIER MEMBRE GO TO EDIT
+### AJOUT DU PREMIER MEMBRE GO TO ``EDIT``
 
 ![alt text](images2/image-17.png)
 
@@ -83,7 +83,7 @@ COLS    // permet d'afficher les nombre de collone
 ### Ajout d'autre membre
 
 ```
-S PROG3
+S PROG2
 ```
 ![alt text](images2/image-21.png)
 
