@@ -17,7 +17,7 @@
 'FORA08.LIB.REXX(MATH1)'
 ```
 
-```batch
+```REXX
 /* REXX */
 Say "Please enter two numbers:"
 Parse Pull num1 num2   /* Récupère l'entrée de l'utilisateur */
@@ -44,7 +44,7 @@ Say num1 "divided by" num2 "is" intDiv "with a remainder of" remainder
 'FORA08.LIB.REXX(MATH2)'
 ```
 
-```
+```REXX
 /* REXX */
 Say "Please enter two numbers:"
 Parse Pull num1 num2   /* Récupère l'entrée de l'utilisateur */
@@ -78,7 +78,7 @@ END
 
 5. Gère la division par zéro.
 
-```
+```REXX
 /* REXX */
 Say "Do you wish to add, subtract, multiply, or divide?"
 Parse Pull operation  /* Lire le choix de l'utilisateur */
@@ -111,7 +111,7 @@ If operation = "add" | operation = "subtract" | operation = "multiply" | (operat
 
 ```
  
-```
+```REXX
 /* REXX */                                                              
 Say "Do you wish to add, subtract, multiply, or divide?"                
 Parse Pull operation  /* Lire le choix de l'utilisateur */                    
@@ -139,7 +139,7 @@ End
 
 ### MATH3
 
-```
+```REXX
 /* REXX - MATH3 */
 Say "Welcome to MATH3. Type 'exit' to quit."
 
@@ -185,7 +185,7 @@ End  /* Fin de la boucle principale */
 ```
 
 ### MYMATH2
-```
+```REXX
 /* REXX */
 Do Forever
    Say "Do you wish to add, subtract, multiply, divide, or exit?"
