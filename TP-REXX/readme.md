@@ -17,7 +17,7 @@
 'FORA08.LIB.REXX(MATH1)'
 ```
 
-```
+```batch
 /* REXX */
 Say "Please enter two numbers:"
 Parse Pull num1 num2   /* Récupère l'entrée de l'utilisateur */
