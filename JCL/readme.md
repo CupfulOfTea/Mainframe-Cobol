@@ -143,7 +143,7 @@ OPTION SKIPREC=1      // Permet de skip la premiere ligne, dans le cas où un li
 
 ### LECTURE ET ECRITURE DE FICHIER EN JCL
 
-```JCL
+```rexx
 //FORA08D JOB ACCTFORA,'ALEXANDRE',CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID, 
 //         TIME=(,1)                                                  
 //SORT     EXEC PGM=ICEMAN                                            
@@ -189,9 +189,6 @@ OPTION SKIPREC=1      // Permet de skip la premiere ligne, dans le cas où un li
  MEMBER NAME=MB3                                                  
 //SYSPRINT DD SYSOUT=*                                            
 ```
-
-
-![alt text](images/image-21.png)
 
 ![alt text](images/image-20.png)
 
