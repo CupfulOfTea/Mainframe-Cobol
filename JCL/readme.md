@@ -143,7 +143,7 @@ OPTION SKIPREC=1      // Permet de skip la premiere ligne, dans le cas où un li
 
 ### LECTURE ET ECRITURE DE FICHIER EN JCL
 
-```rexx
+```jcl
 //FORA08D JOB ACCTFORA,'ALEXANDRE',CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID, 
 //         TIME=(,1)                                                  
 //SORT     EXEC PGM=ICEMAN                                            
