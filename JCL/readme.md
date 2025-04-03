@@ -99,8 +99,6 @@ D     // Permet pour un SORT FIELDS de trier par ordre décroissant.
 ```
 
 
-Format des données | Format du champ comme CH - Charactère, ZD - Décimal zoné signé, 
-
 ### Test du programe
 
 ![alt text](images/image-8.png)
