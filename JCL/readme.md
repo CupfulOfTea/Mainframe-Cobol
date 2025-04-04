@@ -414,7 +414,7 @@ Si le code retour de step1 n'est pas egale à 0 alors on n'execute pas ce qu'il 
 
 ## VARIABLE DE SUMBTITUTION
 
-Permet de placette des variable en paramettre d'un fichier JCL via des variable substitution au moment de l'execution.
+Permet de placer des variable en paramettre d'un fichier JCL via des variable substitution au moment de l'execution.
 
 ### EXECPRO3
 ```JCL
