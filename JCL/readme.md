@@ -296,8 +296,8 @@ Le fichier ``FORA08.SEQ.CLIENTS.G0001V00`` à était suprimer car on à intiatil
 
 
 ## Procedure cataloger
-### EXECPROC
-```
+### EXECPRO
+```jcl
 //FORA08B JOB ACCTFORA,'ALEXANDRE',CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID,
 //        TIME=(,1)                                                  
 //TOTO    JCLLIB  ORDER=FORA08.LIB.JCL                               
@@ -306,7 +306,7 @@ Le fichier ``FORA08.SEQ.CLIENTS.G0001V00`` à était suprimer car on à intiatil
 ```
 
 ### MAPROC2
-```
+```jcl
 //MAPROC2 PROC                                               
 //* APPELLE LE FICHIER JCL STOCKER                           
 //*STEP1    EXEC FORA08LIB.JCL(MAPROC1)                      
@@ -351,7 +351,7 @@ Le fichier ``FORA08.SEQ.CLIENTS.G0001V00`` à était suprimer car on à intiatil
 
 Si le code retour de step1 n'est pas egale à 0 alors on n'execute pas step2.
 
-### EXECPROC
+### EXECPRO
 
 ```JCL
 //FORA08B JOB ACCTFORA,'ALEXANDRE',CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID,
@@ -382,7 +382,7 @@ Si le code retour de step1 n'est pas egale à 0 alors on n'execute pas step2.
 
 Si le code retour de step1 n'est pas egale à 0 alors on n'execute pas ce qu'il y en entre le ``IF`` et le ``ENDIF``.
 
-### EXECPROC
+### EXECPRO
 
 ```JCL
 //FORA08B JOB ACCTFORA,'ALEXANDRE',CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID,
@@ -416,7 +416,7 @@ Si le code retour de step1 n'est pas egale à 0 alors on n'execute pas ce qu'il 
 
 Permet de placette des variable en paramettre d'un fichier JCL via des variable substitution au moment de l'execution.
 
-
+### EXECPRO3
 ```JCL
 //FORA08C JOB ACCTFORA,'ALEXANDRE',CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID,
 //        TIME=(,1)                                                  
