@@ -421,7 +421,7 @@ Permet de placer des variable en paramettre d'un fichier JCL via des variable su
 //FORA08C JOB ACCTFORA,'ALEXANDRE',CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID,
 //        TIME=(,1)                                                  
 //D1    JCLLIB  ORDER=FORA08.LIB.JCL                                 
-//STEP1   EXEC PROC=MAPROC3,FICHIER1=FORA08.SEQ.CLIENT, -            
+//STEP1   EXEC PROC=MAPROC3,FICHIER1=FORA08.SEQ.CLIENT,           
 //             FICHIER1=FORA08.SEQ.CLIENT,R=FB                       
 //SYSPRINT DD SYSOUT=*                                                                                             
 ```
