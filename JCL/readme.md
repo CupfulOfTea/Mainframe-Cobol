@@ -412,7 +412,7 @@ Si le code retour de step1 n'est pas egale à 0 alors on n'execute pas ce qu'il 
 //         PEND                                              
 ```
 
-## VARIABLE DE SUMBTITUTION
+## VARIABLE DE SUBSTITUTION
 
 Permet de placer des variable en paramettre d'un fichier JCL via des variable substitution au moment de l'execution.
 
