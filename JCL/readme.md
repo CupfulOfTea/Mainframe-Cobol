@@ -293,3 +293,26 @@ OPTION SKIPREC=1      // Permet de skip la premiere ligne, dans le cas où un li
 ![alt text](images/image-24.png)
 
 Le fichier ``FORA08.SEQ.CLIENTS.G0001V00`` à était suprimer car on à intiatiliser une limite de version a 3. 
+
+
+## ICETOOL
+
+```JCL
+//FORA08A  JOB CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID,TIME=(,1)      
+//EDITION EXEC PGM=ICETOOL                                      
+//TOOLMSG   DD SYSOUT=X                                         
+//DFSMSG    DD SYSOUT=X                                         
+//ENTREE    DD DSN=FORA08.SEQ.CLIENT,DISP=SHR                   
+//SORTIE    DD SYSOUT=*                                         
+//TOOLIN    DD *                                                
+  DISPLAY FROM(ENTREE) -                                        
+          LIST(SORTIE) DATE TIME TITLE('GESTION DES CLIENTS') - 
+          HEADER('CODE CLIENT')    ON(1,4,CH)-                  
+          HEADER('NOM')            ON(6,6,CH) -                 
+          HEADER('PRENOM')         ON(13,6,CH) -                
+          HEADER('VILLE')          ON(20,6,CH)                  
+//SYSOUT    DD SYSOUT=*                                         
+//SYSPRINT  DD SYSOUT=*                                         
+```
+
+![alt text](images/image-25.png)
