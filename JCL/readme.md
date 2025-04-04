@@ -76,7 +76,7 @@ CH    // Indique le format du champ comme - Caractère.
 ```
 
 ```
-ZD    // Indique le format du champ comme - Décimal zoné signé (format EBCDIC)
+ZD    // Indique le format du champ comme - Décimal zoné signé
 ```
 
 ```
