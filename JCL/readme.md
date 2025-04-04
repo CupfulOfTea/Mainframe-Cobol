@@ -295,6 +295,36 @@ OPTION SKIPREC=1      // Permet de skip la premiere ligne, dans le cas où un li
 Le fichier ``FORA08.SEQ.CLIENTS.G0001V00`` à était suprimer car on à intiatiliser une limite de version a 3. 
 
 
+## Procedure cataloger
+### EXECPROC
+```
+//FORA08B JOB ACCTFORA,'ALEXANDRE',CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID,
+//        TIME=(,1)                                                  
+//TOTO    JCLLIB  ORDER=FORA08.LIB.JCL                               
+//STEP2   EXEC MAPROC2                                              
+//SYSPRINT DD SYSOUT=*                                               
+```
+
+### MAPROC2
+```
+//MAPROC2 PROC                                               
+//* APPELLE LE FICHIER JCL STOCKER                           
+//*STEP1    EXEC FORA08LIB.JCL(MAPROC1)                      
+//STEP1   EXEC PGM=IDCAMS                                    
+//SYSIN DD *                                                 
+  DELETE FORA08.SEQ.CLIENT3                                  
+  SET MAXCC=0                                                
+//STEP2    EXEC PGM=SORT                                     
+//SORTIN   DD DSN=FORA08.SEQ.CLIENT,DISP=SHR                 
+//SORTOUT  DD DSN=FORA08.SEQ.CLIENT3,DISP=(,CATLG,DELETE),   
+//            LRECL=80,BLKSIZE=800,RECFM=FB,SPACE=(TRK,(1,1))
+//SYSIN    DD *                                              
+  SORT FIELDS=(1,4,CH,A)                                     
+//SYSOUT   DD SYSOUT=*                                       
+//SYSPRINT DD SYSOUT=*                                       
+//         PEND                                              
+```
+
 ## ICETOOL
 
 ```JCL
@@ -316,3 +346,102 @@ Le fichier ``FORA08.SEQ.CLIENTS.G0001V00`` à était suprimer car on à intiatil
 ```
 
 ![alt text](images/image-25.png)
+
+## Procedure cataloger AVEC CONDITION cond
+
+Si le code retour de step1 n'est pas egale à 0 alors on n'execute pas step2.
+
+### EXECPROC
+
+```JCL
+//FORA08B JOB ACCTFORA,'ALEXANDRE',CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID,
+//        TIME=(,1)                                                  
+//TOTO    JCLLIB  ORDER=FORA08.LIB.JCL                               
+//STEP2   EXEC MAPROC21                                              
+//SYSPRINT DD SYSOUT=*                                               
+```
+
+### MAPROC21
+```JCL
+//MAPROC21 PROC                                              
+//STEP1   EXEC PGM=IDCAMS                                    
+//SYSIN DD *                                                 
+  DELETE FORA08.SEQ.CLIENT3                                  
+//* SET MAXCC=0                                              
+//STEP2    EXEC PGM=SORT,COND=(0,NE)                         
+//SORTIN   DD DSN=FORA08.SEQ.CLIENT,DISP=SHR                 
+//SORTOUT  DD DSN=FORA08.SEQ.CLIENT3,DISP=(,CATLG,DELETE),   
+//            LRECL=80,BLKSIZE=800,RECFM=FB,SPACE=(TRK,(1,1))
+//SYSIN    DD *                                              
+  SORT FIELDS=(1,4,CH,A)                                     
+//SYSOUT   DD SYSOUT=*                                       
+//SYSPRINT DD SYSOUT=*                                       
+//         PEND
+```
+## Procedure cataloger IF/THEN
+
+Si le code retour de step1 n'est pas egale à 0 alors on n'execute pas ce qu'il y en entre le ``IF`` et le ``ENDIF``.
+
+### EXECPROC
+
+```JCL
+//FORA08B JOB ACCTFORA,'ALEXANDRE',CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID,
+//        TIME=(,1)                                                  
+//TOTO    JCLLIB  ORDER=FORA08.LIB.JCL                               
+//STEP2   EXEC MAPROC22                                              
+//SYSPRINT DD SYSOUT=*                                               
+```
+
+### MAPROC22
+```JCL
+//MAPROC22 PROC                                              
+//STEP1   EXEC PGM=IDCAMS                                    
+//SYSIN DD *                                                 
+  DELETE FORA08.SEQ.CLIENT5                                  
+//* SET MAXCC=0                                              
+//COND01   IF STEP1.RC=0 THEN                                
+//STEP2    EXEC PGM=SORT                                     
+//SORTIN   DD DSN=FORA08.SEQ.CLIENT,DISP=SHR                 
+//SORTOUT  DD DSN=FORA08.SEQ.CLIENT3,DISP=(,CATLG,DELETE),   
+//            LRECL=80,BLKSIZE=800,RECFM=FB,SPACE=(TRK,(1,1))
+//SYSIN    DD *                                              
+  SORT FIELDS=(1,4,CH,A)                                     
+//SYSOUT   DD SYSOUT=*                                       
+//SYSPRINT DD SYSOUT=*                                       
+//         ENDIF                                             
+//         PEND                                              
+```
+
+## VARIABLE DE SUMBTITUTION
+
+Permet de placette des variable en paramettre d'un fichier JCL via des variable substitution au moment de l'execution.
+
+
+```JCL
+//FORA08C JOB ACCTFORA,'ALEXANDRE',CLASS=A,MSGCLASS=A,NOTIFY=&SYSUID,
+//        TIME=(,1)                                                  
+//D1    JCLLIB  ORDER=FORA08.LIB.JCL                                 
+//STEP1   EXEC PROC=MAPROC3,FICHIER1=FORA08.SEQ.CLIENT, -            
+//             FICHIER1=FORA08.SEQ.CLIENT,R=FB                       
+//SYSPRINT DD SYSOUT=*                                                                                             
+```
+
+### MAPROC3
+```JCL
+//MAPROC3 PROC                                              
+//STEP1   EXEC PGM=IDCAMS                                    
+//SYSIN DD *                                                 
+  DELETE FORA08.SEQ.CLIENT5                                  
+//* SET MAXCC=0                                              
+//COND01   IF STEP1.RC=0 THEN                                
+//STEP2    EXEC PGM=SORT                                     
+//SORTIN   DD DSN=&FICHIER1,DISP=SHR                 
+//SORTOUT  DD DSN=&FICHIER2,DISP=(,CATLG,DELETE),   
+//            LRECL=80,BLKSIZE=800,RECFM=&R,SPACE=(TRK,(1,1))
+//SYSIN    DD *                                              
+  SORT FIELDS=(1,4,CH,A)                                     
+//SYSOUT   DD SYSOUT=*                                       
+//SYSPRINT DD SYSOUT=*                                       
+//         ENDIF                                             
+//         PEND                                              
+```
