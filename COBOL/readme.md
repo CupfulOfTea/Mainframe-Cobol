@@ -341,7 +341,7 @@ FORA99.LIB.LOAD
        FILE SECTION.                           
        FD  FASSURES                            
            RECORDING MODE IS F                 
-           DATA RECORD IS ENRASURES.           
+           DATA RECORD IS ENRASSURES.           
                                                
        01 ENRASSURES.                           
            05 MATRICULE         PIC 9(6).      
