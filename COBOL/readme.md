@@ -382,7 +382,7 @@ FORA99.LIB.LOAD
            DISPLAY 'VILLE           : ' VILLE                     
            DISPLAY 'TYPE VEHICULE   : ' TYPE-VEHICULE 
            MOVE PRIME-DE-BASE TO SPRIME-DE-BASE            
-           DISPLAY 'PRIME DE BASE   : ' PRIME-DE-BASE            
+           DISPLAY 'PRIME DE BASE   : ' SPRIME-DE-BASE            
            DISPLAY 'BONUS/MALUS     : ' BONUS-MALUS               
            DISPLAY 'TAUX            : ' TAUX                      
            DISPLAY ' '. 
