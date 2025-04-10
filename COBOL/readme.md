@@ -158,7 +158,7 @@ FORA99.LIB.LOAD
             ACCEPT CHAMP.                                                                              
 ```
 
-## PICTURE
+## A08EPGMB - PICTURE
 
 ```COBOL
        IDENTIFICATION DIVISION.        
@@ -315,7 +315,7 @@ FORA99.LIB.LOAD
 
 ![alt text](images/image-3.png)
 
-## TP 1
+## A08GPGMB - TP 1
 
 
 
