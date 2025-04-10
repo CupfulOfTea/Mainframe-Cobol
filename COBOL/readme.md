@@ -130,6 +130,9 @@ FORA99.LIB.LOAD
 //SYSOUT DD SYSOUT=*                                              
 //SYSPRINT DD SYSOUT=*                                            
 ```
+
+![alt text](images/image-2.png)
+
 ## A08DPGMB - PERFORM OUT-OF-LINE
 
 ```COBOL
@@ -400,4 +403,4 @@ FORA99.LIB.LOAD
 ![alt text](images/image-4.png)
 
 
-![alt text](images/image-2.png)
+
