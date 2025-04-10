@@ -370,17 +370,17 @@ FORA99.LIB.LOAD
            END-READ.                                              
                                                                   
        AFFICHAGE-ASSURE.                                          
-           DISPLAY "MATRICULE       : " MATRICULE                 
-           DISPLAY "NOM PRENOM      : " NOM-PRENOM                
-           DISPLAY "RUE ADRESSE     : " RUE-ADRESSE               
-           DISPLAY "CODE POSTAL     : " CODE-POSTAL               
-           DISPLAY "VILLE           : " VILLE                     
-           DISPLAY "TYPE VEHICULE   : " TYPE-VEHICULE 
+           DISPLAY 'MATRICULE       : ' MATRICULE                 
+           DISPLAY 'NOM PRENOM      : ' NOM-PRENOM                
+           DISPLAY 'RUE ADRESSE     : ' RUE-ADRESSE               
+           DISPLAY 'CODE POSTAL     : ' CODE-POSTAL               
+           DISPLAY 'VILLE           : ' VILLE                     
+           DISPLAY 'TYPE VEHICULE   : ' TYPE-VEHICULE 
            MOVE PRIME-DE-BASE TO SPRIME-DE-BASE            
-           DISPLAY "PRIME DE BASE   : " PRIME-DE-BASE            
-           DISPLAY "BONUS/MALUS     : " BONUS-MALUS               
-           DISPLAY "TAUX            : " TAUX                      
-           DISPLAY "-------------------------------------------". 
+           DISPLAY 'PRIME DE BASE   : ' PRIME-DE-BASE            
+           DISPLAY 'BONUS/MALUS     : ' BONUS-MALUS               
+           DISPLAY 'TAUX            : ' TAUX                      
+           DISPLAY ' '. 
                                                                   
        FIN.                                                       
            CLOSE FASSURES.                                        
