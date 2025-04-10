@@ -343,7 +343,7 @@ FORA99.LIB.LOAD
            RECORDING MODE IS F                 
            DATA RECORD IS ENRASURES.           
                                                
-       01 NRASSURES.                           
+       01 ENRASSURES.                           
            05 MATRICULE         PIC 9(6).      
            05 NOM-PRENOM        PIC X(20).     
            05 RUE-ADRESSE       PIC X(18).     
