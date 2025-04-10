@@ -162,11 +162,16 @@ FORA99.LIB.LOAD
 
 ```COBOL
        IDENTIFICATION DIVISION.        
-       PROGRAM-ID. A08EPGMB.             
+       PROGRAM-ID. A08EPGMB.
+
+       AUTHOR. ALEXANDRE.             
+
        ENVIRONMENT DIVISION.           
        CONFIGURATION SECTION.          
+
        SPECIAL-NAMES.                  
            DECIMAL-POINT IS COMMA.     
+
        DATA DIVISION.                  
        WORKING-STORAGE SECTION.        
        01 LIGNE1     PIC AAAA    VALUE 'ERIC'.
