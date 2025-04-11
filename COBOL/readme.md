@@ -335,7 +335,7 @@ FORA99.LIB.LOAD
        SPECIAL-NAMES.                                                   
            DECIMAL-POINT IS COMMA.                                      
                                                                         
-      * PERMET DE PLACER LE FICHIER DE D'ENTRER APRES COMPILATION EN JCL
+      * PERMET DE PLACER LE FICHIER D'ENTRER APRES COMPILATION EN JCL
        INPUT-OUTPUT SECTION.                                            
        FILE-CONTROL.                                                    
            SELECT FASSURES ASSIGN TO DDENTREE.                          
