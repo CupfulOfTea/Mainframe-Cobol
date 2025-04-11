@@ -346,7 +346,7 @@ FORA99.LIB.LOAD
        FD  FASSURES                                                     
       *    MODE F INDIQUE L'UTILISATION D'UN ENR FIXE SUR LE FICHIER    
            RECORDING MODE IS F                                          
-      *    ASSOCIATION DU FICHIER LOGIQUE FASSURES à UNE STRUCTURE DE   
+      *    ASSOCIATION DU FICHIER LOGIQUE FASSURES A UNE STRUCTURE DE   
       *    DONNEES ENRASSURES                                           
            DATA RECORD IS ENRASSURES.                                   
                                                                         
