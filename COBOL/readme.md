@@ -325,70 +325,80 @@ FORA99.LIB.LOAD
 
 
 ```COBOL
-       IDENTIFICATION DIVISION.                
-       PROGRAM-ID. A08GPGMB.                   
-       AUTHOR. ALEXANDRE.                      
-                                               
-       ENVIRONMENT DIVISION.                   
-       CONFIGURATION SECTION.                  
-       SPECIAL-NAMES.                          
-           DECIMAL-POINT IS COMMA.             
-       INPUT-OUTPUT SECTION.                   
-       FILE-CONTROL.                           
-           SELECT FASSURES ASSIGN TO DDENTREE. 
-                                               
-       DATA DIVISION.                          
-       FILE SECTION.                           
-       FD  FASSURES                            
-           RECORDING MODE IS F                 
-           DATA RECORD IS ENRASSURES.           
-                                               
-       01 ENRASSURES.                           
-           05 MATRICULE         PIC 9(6).      
-           05 NOM-PRENOM        PIC X(20).     
-           05 RUE-ADRESSE       PIC X(18).     
-           05 CODE-POSTAL       PIC 9(5).      
-           05 VILLE             PIC X(12).     
-           05 TYPE-VEHICULE     PIC X(1).      
-           05 PRIME-DE-BASE     PIC 9(4)V99.   
-           05 BONUS-MALUS       PIC X(1).      
-           05 TAUX              PIC 9(2).      
+       IDENTIFICATION DIVISION.                                         
+       PROGRAM-ID. A08GPGMB.                                            
+       AUTHOR. ALEXANDRE.                                               
+                                                                        
+      * FORMATAGE EUROPE                                                
+       ENVIRONMENT DIVISION.                                            
+       CONFIGURATION SECTION.                                           
+       SPECIAL-NAMES.                                                   
+           DECIMAL-POINT IS COMMA.                                      
+                                                                        
+      * PERMET DE PLACER LE FICHIER DE D'ENTRER APRES COMPILATION EN JCL
+       INPUT-OUTPUT SECTION.                                            
+       FILE-CONTROL.                                                    
+           SELECT FASSURES ASSIGN TO DDENTREE.                          
+                                                                        
+       DATA DIVISION.                                                   
+       FILE SECTION.                                                    
+      * FD PERMET DE DECLARER UN FICHIER LOGIQUE EN FILE SELECTION      
+       FD  FASSURES                                                     
+      *    MODE F INDIQUE L'UTILISATION D'UN ENR FIXE SUR LE FICHIER    
+           RECORDING MODE IS F                                          
+      *    ASSOCIATION DU FICHIER LOGIQUE FASSURES à UNE STRUCTURE DE   
+      *    DONNEES ENRASSURES                                           
+           DATA RECORD IS ENRASSURES.                                   
+                                                                        
+       01 ENRASSURES.                                                   
+           05 MATRICULE         PIC 9(6).                               
+           05 NOM-PRENOM        PIC X(20).                              
+           05 RUE-ADRESSE       PIC X(18).                              
+           05 CODE-POSTAL       PIC 9(5).                               
+           05 VILLE             PIC X(12).                              
+           05 TYPE-VEHICULE     PIC X(1).                               
+           05 PRIME-DE-BASE     PIC 9(4)V99.                            
+           05 BONUS-MALUS       PIC X(1).                               
+           05 TAUX              PIC 9(2).                                     
            05 FILLER            PIC X(9).      
                                                
                                                
-       WORKING-STORAGE SECTION.                
-       01 EOF PIC 9 VALUE 0.                   
-       01 SPRIME-DE-BASE PIC 9999,99.                             
-                                               
-       PROCEDURE DIVISION.                     
-           OPEN INPUT FASSURES                 
-           PERFORM TRAITEMENT UNTIL EOF = 1    
-           PERFORM FIN                         
-           STOP RUN.                              
-                                              
-       TRAITEMENT.                            
-           READ FASSURES                      
-               AT END                                             
-                   MOVE 1 TO EOF                                  
-               NOT AT END                                         
-                   PERFORM AFFICHAGE-ASSURE                       
-           END-READ.                                              
-                                                                  
-       AFFICHAGE-ASSURE.                                          
-           DISPLAY 'MATRICULE       : ' MATRICULE                 
-           DISPLAY 'NOM PRENOM      : ' NOM-PRENOM                
-           DISPLAY 'RUE ADRESSE     : ' RUE-ADRESSE               
-           DISPLAY 'CODE POSTAL     : ' CODE-POSTAL               
-           DISPLAY 'VILLE           : ' VILLE                     
-           DISPLAY 'TYPE VEHICULE   : ' TYPE-VEHICULE 
-           MOVE PRIME-DE-BASE TO SPRIME-DE-BASE            
-           DISPLAY 'PRIME DE BASE   : ' SPRIME-DE-BASE            
-           DISPLAY 'BONUS/MALUS     : ' BONUS-MALUS               
-           DISPLAY 'TAUX            : ' TAUX                      
-           DISPLAY ' '. 
+      * DECLARATION DE VARIABLE                                     
+       WORKING-STORAGE SECTION.                                     
+       01 EOF PIC 9 VALUE 0.                                        
+       01 SPRIME-DE-BASE PIC 9999,99.                               
+                                                                   
+       PROCEDURE DIVISION.                                          
+           OPEN INPUT FASSURES                                      
+           PERFORM TRAITEMENT UNTIL EOF = 1                         
+           PERFORM FIN                                              
+           STOP RUN.                                                
+                                                                   
+      * LIS DE FACON SEQUENTIEL LE FICHIER JUSQU'A LA FIN DU FICHIER
+       TRAITEMENT.                                                  
+           READ FASSURES                                            
+               AT END                                               
+                   MOVE 1 TO EOF                                    
+               NOT AT END                                           
+                   PERFORM AFFICHAGE-ASSURE                         
+           END-READ.                                                
+                                                                   
+      * AFFICHAGE EN SORTIE DU FICHIER JOBS                         
+       AFFICHAGE-ASSURE.                                            
+           DISPLAY 'MATRICULE       '  MATRICULE                    
+           DISPLAY 'NOM PRENOM      '  NOM-PRENOM                   
+           DISPLAY 'RUE ADRESSE     '  RUE-ADRESSE                  
+           DISPLAY 'CODE POSTAL     '  CODE-POSTAL                  
+           DISPLAY 'VILLE           '  VILLE                        
+           DISPLAY 'TYPE VEHICULE   '  TYPE-VEHICULE                
+           MOVE PRIME-DE-BASE TO SPRIME-DE-BASE                     
+           DISPLAY 'PRIME DE BASE   '  SPRIME-DE-BASE               
+           DISPLAY 'BONUS/MALUS     '  BONUS-MALUS                  
+           DISPLAY 'TAUX            '  TAUX                         
+           DISPLAY ' '.                                              
                                                                   
        FIN.                                                       
-           CLOSE FASSURES.                                        
+           CLOSE FASSURES.                                     
 ```
 
 ### EXECUTION DU PROGRAMME 
