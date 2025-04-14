@@ -158,10 +158,11 @@
           05 FILLER-TOTAL     PIC X(10).      
           05 TEXTE-DEP        PIC X(3).       
           05 FILLER-SEP       PIC X(3).       
-          05 TEXTE-MONTANT    PIC Z(5).                    
-          05 FILLER           PIC X(59).                   
+          05 TEXTE-MONTANT    PIC Z(5)9.
+          05 FILLER-TOTO      PIC X(58).                   
                                                            
        WORKING-STORAGE SECTION.                            
+       77 FILLER-SPACES        PIC X(58) VALUE SPACES.
        01 CR-EMP               PIC XX.                     
        01 TOTAL-SALAIRE        PIC 9(6) VALUE ZEROS.       
        01 DEP-CURRENT          PIC X(3).                   
@@ -218,7 +219,8 @@
            MOVE 'TOTAL DEP ' TO FILLER-TOTAL               
            MOVE DEP-PREVIOUS TO TEXTE-DEP                  
            MOVE TOTAL-SALAIRE TO TEXTE-MONTANT             
-           MOVE ' : ' TO FILLER-SEP                        
+           MOVE ' : ' TO FILLER-SEP
+           MOVE FILLER-SPACES TO FILLER-TOTO             
            WRITE SOR-EMP.                                  
                                                            
        AFFICHER-DERNIER-TOTAL.                             
