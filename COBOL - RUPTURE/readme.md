@@ -399,7 +399,7 @@
 //            SPACE=(TRK,(1,1),RLSE),                       
 //            DCB=(RECFM=FB,LRECL=80,BLKSIZE=23200,DSORG=PS)                  
 ```
-![alt text](image-1.png)
+![alt text](images2/image-1.png)
 
 ## TP 2 - gestion de l'affichage des codes erreurs centraliser.
 
