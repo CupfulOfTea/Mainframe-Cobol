@@ -848,5 +848,5 @@ PROVENCE-ALPES-COTE-D'AZUR,DEP83,TOULON    ,Emma Martin       ,2200
 //            DCB=(RECFM=FB,LRECL=80,BLKSIZE=23200,DSORG=PS)                  
 ```
 
-![alt text](images2/image-2.png)
+![alt text](images2/image-2.png)  
 ![alt text](images2/image-3.png)
