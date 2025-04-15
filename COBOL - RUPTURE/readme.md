@@ -644,7 +644,7 @@ Host Code Page | IBM-037 (ou laisse par défaut)
           05 FILLER-SPC      PIC X(30).
 
        WORKING-STORAGE SECTION.
-       01 FILLER-SPACES      PIC X(42) VALUE SPACES.
+       01 FILLER-SPACES      PIC X(30) VALUE SPACES.
        01 CR-EMP             PIC XX.
        01 TOTAL-REGION       PIC 9(6) VALUE ZERO.
        01 TOTAL-DEPT         PIC 9(6) VALUE ZERO.
