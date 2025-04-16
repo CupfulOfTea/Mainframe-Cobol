@@ -618,37 +618,16 @@ Host Code Page | IBM-037 (ou laisse par défaut)
        DATA DIVISION.
        FILE SECTION.
 
-       FD FENTREE
-           RECORDING MODE IS F
-           DATA RECORD IS ENR-ENT.
-       01 ENR-ENT.
-          05 REGION         PIC X(26).          
-          05 FILLER         PIC X.
-          05 DEP-NUM        PIC X(5).    
-          05 FILLER         PIC X.
-          05 VILLE-NOM      PIC X(10).       
-          05 FILLER         PIC X.
-          05 NOM-PRENOM     PIC X(18).      
-          05 FILLER         PIC X.
-          05 SALAIRE        PIC Z(5)9.       
-          05 FILLER         PIC X(12).
-          
-       FD FSORTIE
-           RECORDING MODE IS F
-           DATA RECORD IS SOR-REC.
-       01 SOR-REC.
-          05 LABEL-TEXT      PIC X(15).
-          05 NOM-GROUPE      PIC X(26).        
-          05 FILLER-SEP      PIC X(3).
-          05 MONTANT         PIC Z(5)9.
-          05 FILLER-SPC      PIC X(30).
+       COPY RUPTURE3.
+       COPY SRUPT3.     
 
        WORKING-STORAGE SECTION.
-       01 FILLER-SPACES      PIC X(30) VALUE SPACES.
+       01 FILLER-SPACES      PIC X(42) VALUE SPACES.
        01 CR-EMP             PIC XX.
        01 TOTAL-REGION       PIC 9(6) VALUE ZERO.
        01 TOTAL-DEPT         PIC 9(6) VALUE ZERO.
        01 TOTAL-VILLE        PIC 9(6) VALUE ZERO.
+       05 MONTANT-EDIT       PIC Z(5)9.
 
        01 REG-CURR           PIC X(26).         
        01 DEP-CURR           PIC X(5).           
@@ -659,19 +638,20 @@ Host Code Page | IBM-037 (ou laisse par défaut)
        01 DEP-PREV           PIC X(5) VALUE SPACES.    
        01 VIL-PREV           PIC X(10) VALUE SPACES.   
 
-       01 NB-LUS             PIC 9(5) VALUE ZERO.
-       01 NB-ECRITS          PIC 9(5) VALUE ZERO.
+       01 NB-LUS             PIC 9(5) COMP VALUE ZERO.
+       01 NB-ECRITS          PIC 9(5) COMP VALUE ZERO.
        01 ACTION-COURANTE    PIC X(10) VALUE SPACES.
 
        PROCEDURE DIVISION.
-       0000-MAIN.
+       MAIN-SECTION.
            PERFORM 1000-INITIALISATION
-           PERFORM 2000-TRAITEMENT UNTIL CR-EMP = '10'
+           PERFORM 2000-TRAITEMENT THRU 2100-LIRE-ENR UNTIL CR-EMP = '10'
            PERFORM 3000-AFFICHER-DERNIERS-TOTAUX
            PERFORM 4000-FINALISATION
            STOP RUN.
 
-       1000-INITIALISATION.
+       INITIALISATION-SECTION. 
+         1000-INITIALISATION.
            MOVE 'OUVERTURE' TO ACTION-COURANTE
            OPEN INPUT FENTREE
            PERFORM 2500-AFFICHER-ERREUR
@@ -682,7 +662,8 @@ Host Code Page | IBM-037 (ou laisse par défaut)
            MOVE 'LECTURE' TO ACTION-COURANTE
            PERFORM 2100-LIRE-ENR.
 
-       2000-TRAITEMENT.
+       TRAITEMENT-SECTION.
+         2000-TRAITEMENT.
            ADD 1 TO NB-LUS
 
            MOVE REGION TO REG-CURR
@@ -714,11 +695,9 @@ Host Code Page | IBM-037 (ou laisse par défaut)
 
            MOVE REG-CURR TO REG-PREV
            MOVE DEP-CURR TO DEP-PREV
-           MOVE VIL-CURR TO VIL-PREV
+           MOVE VIL-CURR TO VIL-PREV.
 
-           PERFORM 2100-LIRE-ENR.
-
-       2100-LIRE-ENR.
+         2100-LIRE-ENR.
            READ FENTREE
            IF CR-EMP = '10'
                DISPLAY 'FIN DE FICHIER'
@@ -726,40 +705,43 @@ Host Code Page | IBM-037 (ou laisse par défaut)
                PERFORM 2500-AFFICHER-ERREUR    
            END-IF.
 
-       2200-AFFICHER-SOUS-TOTAL-VILLE.
+         2200-AFFICHER-SOUS-TOTAL-VILLE.
            IF VIL-PREV NOT = SPACES
                MOVE 'VILLE:' TO LABEL-TEXT
                MOVE VIL-PREV TO NOM-GROUPE
                MOVE ' - ' TO FILLER-SEP
-               MOVE TOTAL-VILLE TO MONTANT
+               MOVE TOTAL-VILLE TO MONTANT-EDIT
+               MOVE MONTANT-EDIT TO MONTANT
                MOVE FILLER-SPACES TO FILLER-SPC
                WRITE SOR-REC
                ADD 1 TO NB-ECRITS
            END-IF.
 
-       2300-AFFICHER-SOUS-TOTAL-DEPT.
+         2300-AFFICHER-SOUS-TOTAL-DEPT.
            IF DEP-PREV NOT = SPACES
                MOVE 'DEPARTEMENT:' TO LABEL-TEXT
                MOVE DEP-PREV TO NOM-GROUPE
                MOVE ' - ' TO FILLER-SEP
-               MOVE TOTAL-DEPT TO MONTANT
+               MOVE TOTAL-DEPT TO MONTANT-EDIT
+               MOVE MONTANT-EDIT TO MONTANT
                MOVE FILLER-SPACES TO FILLER-SPC
                WRITE SOR-REC
                ADD 1 TO NB-ECRITS
            END-IF.
 
-       2400-AFFICHER-TOTAL-REGION.
+         2400-AFFICHER-TOTAL-REGION.
            IF REG-PREV NOT = SPACES
                MOVE 'REGION:' TO LABEL-TEXT
                MOVE REG-PREV TO NOM-GROUPE
                MOVE ' - ' TO FILLER-SEP
-               MOVE TOTAL-REGION TO MONTANT
+               MOVE TOTAL-REGION TO MONTANT-EDIT
+               MOVE MONTANT-EDIT TO MONTANT
                MOVE FILLER-SPACES TO FILLER-SPC
                WRITE SOR-REC
                ADD 1 TO NB-ECRITS
            END-IF.
 
-       2500-AFFICHER-ERREUR.
+         2500-AFFICHER-ERREUR.
            EVALUATE CR-EMP                                           
                WHEN '00'                                             
                    CONTINUE                                          
@@ -784,14 +766,15 @@ Host Code Page | IBM-037 (ou laisse par défaut)
                             ACTION-COURANTE                          
       *            MOVE '10' TO CR-EMP                               
            END-EVALUATE.                                             
- 
-       3000-AFFICHER-DERNIERS-TOTAUX. 
+   
+       DERNIER-TRAITEMENT-SECTION.
+         3000-AFFICHER-DERNIERS-TOTAUX. 
            PERFORM 2200-AFFICHER-SOUS-TOTAL-VILLE
            PERFORM 2300-AFFICHER-SOUS-TOTAL-DEPT
            PERFORM 2400-AFFICHER-TOTAL-REGION.
             
-
-       4000-FINALISATION.
+       FINALISATION-SECTION.
+         4000-FINALISATION.
            DISPLAY 'NB ENREGISTREMENTS LUS     : ' NB-LUS
            DISPLAY 'NB ENREGISTREMENTS ECRITS : ' NB-ECRITS
            
@@ -822,13 +805,46 @@ NOUVELLE-AQUITAINE        ,DEP33,BORDEAUX  ,Georges Blanc     ,2900
 NOUVELLE-AQUITAINE        ,DEP33,BORDEAUX  ,Sylvie Legrand    ,3600
 NOUVELLE-AQUITAINE        ,DEP40,DAX       ,Lucien Leclerc    ,2800
 NOUVELLE-AQUITAINE        ,DEP40,DAX       ,Michel Thomas     ,3100
-PROVENCE-ALPES-COTE-D'AZUR,DEP13,AIX-EN-PCE,Paul Durand       ,3000
-PROVENCE-ALPES-COTE-D'AZUR,DEP13,AIX-EN-PCE,Alice Bernard     ,3100
+PROVENCE-ALPES-COTE-D'AZUR,DEP13,MARSEILLE ,Paul Durand       ,3000
+PROVENCE-ALPES-COTE-D'AZUR,DEP13,MARSEILLE ,Alice Bernard     ,3100
 PROVENCE-ALPES-COTE-D'AZUR,DEP13,MARSEILLE ,Jacques Valls     ,3200
 PROVENCE-ALPES-COTE-D'AZUR,DEP13,MARSEILLE ,Sophie Thomas     ,3300
 PROVENCE-ALPES-COTE-D'AZUR,DEP83,TOULON    ,Pierre Leroux     ,2100
 PROVENCE-ALPES-COTE-D'AZUR,DEP83,TOULON    ,Emma Martin       ,2200
 ```
+
+### RUPTURE3
+```
+       FD FENTREE
+           RECORDING MODE IS F
+           DATA RECORD IS ENR-ENT.
+       01 ENR-ENT.
+          05 REGION         PIC X(26).          
+          05 FILLER         PIC X.
+          05 DEP-NUM        PIC X(5).    
+          05 FILLER         PIC X.
+          05 VILLE-NOM      PIC X(10).       
+          05 FILLER         PIC X.
+          05 NOM-PRENOM     PIC X(18).      
+          05 FILLER         PIC X.
+          05 SALAIRE        PIC 9(5).       
+          05 FILLER         PIC X(12).
+```
+
+### SRUPT3
+```          
+       FD FSORTIE
+           RECORDING MODE IS F
+           DATA RECORD IS SOR-REC.
+       01 SOR-REC.
+          05 LABEL-TEXT      PIC X(15).
+          05 NOM-GROUPE      PIC X(26).        
+          05 FILLER-SEP      PIC X(3).
+          05 MONTANT         PIC Z(5)9.
+          05 FILLER-SPC      PIC X(30).
+
+```
+
 
 ### EXECUTION DU PROGRAMME 
 ```JCL
@@ -848,5 +864,10 @@ PROVENCE-ALPES-COTE-D'AZUR,DEP83,TOULON    ,Emma Martin       ,2200
 //            DCB=(RECFM=FB,LRECL=80,BLKSIZE=23200,DSORG=PS)                  
 ```
 
-![alt text](images2/image-2.png)  
+![alt text](images2/image-2.png)
+
 ![alt text](images2/image-3.png)
+
+### test de s message d'erreur avec un format de fichier incorect
+```
+![alt text](image-1.png)
