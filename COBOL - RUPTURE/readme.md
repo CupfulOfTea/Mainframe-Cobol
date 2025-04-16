@@ -627,7 +627,7 @@ Host Code Page | IBM-037 (ou laisse par défaut)
        01 TOTAL-REGION       PIC 9(6) VALUE ZERO.
        01 TOTAL-DEPT         PIC 9(6) VALUE ZERO.
        01 TOTAL-VILLE        PIC 9(6) VALUE ZERO.
-       05 MONTANT-EDIT       PIC Z(5)9.
+       01 MONTANT-EDIT       PIC Z(5)9.
 
        01 REG-CURR           PIC X(26).         
        01 DEP-CURR           PIC X(5).           
