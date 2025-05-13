@@ -571,17 +571,17 @@
 ## Transférer un fichier COBOL vers le mainframe avec IND$FILE
 ### 1. Préparer le fichier COBOL sur ton PC
 ```
-C:\Users\Alexa\Documents\Dossier Aubay\Formation\Gestion des données\Machine\PROGRAMME\A08HPGMT.cbl
+C:\Users\Alexa\Desktop\PROGRAMME\A08HPGMT.cbl
 ```
 
 ### 2. Créer ou connaître le nom du dataset cible sur le mainframe
 ```
-FORA08.LIB.SOURCE(A08HPGMT)
+LIB.SOURCE(A08HPGMT)
 ```
 
 ### 3. Ouvrir une session TSO dans wc3270 et taper :
 ```
-TSO RECEIVE
+6
 ```
 ### Depuis wc3270, lancer le transfert du fichier local
 
